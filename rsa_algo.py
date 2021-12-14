@@ -1,40 +1,30 @@
-from decimal import Decimal 
-  
-def gcd(m,n): 
-    if n==0: 
-        return a 
-    else: 
-        return gcd(n,m%n) 
-#input variables
-p = input()
-q = input()
-no = input()
-#calculate n
-n = p*q 
-#calculate totient
-totient = (p-1)*(q-1) 
-#calculate K
-for k in range(2,totient): 
-    if gcd(k,totient)== 1: 
-        break
-  
-  
-for i in range(1,10): 
-    x = 1 + i*totient 
-    if x % k == 0: 
-        d = int(x/k) 
-        break
-local_cipher = Decimal(0) 
-local_cipher =pow(message,k) 
-cipher_text = ctt % n 
-  
-decrypt_t = Decimal(0) 
-decrypt_t= pow(cipher_text,d) 
-decrpyted_text = decrypt_t % n 
-  
-print('n = '+str(n))
-print(' k = '+str(k))
-print(' totient = '+str(t))
-print(' d = '+str(d)) 
-print('cipher text = '+str(ct))
-print(' decrypted text = '+str(dt))
+from decimal import Decimal
+def gcd(a,b):
+  if b==0:
+     return a
+  else:
+     return gcd(b,a%b)
+p = int(input('Enter the value of p = '))
+q = int(input('Enter the value of q = '))
+no = int(input('Enter the value of text = '))
+n = p*q
+t = (p-1)*(q-1)
+for e in range(2,t):
+    if gcd(e,t)== 1:
+          break
+d=0
+while(1):
+     if((e*d)%t==1):
+         break
+     else:
+         d=d+1
+ctt = Decimal(0)
+ctt =pow(no,e)
+ct = ctt % n
+dtt = Decimal(0)
+dtt = pow(ct,d)
+dt = dtt % n
+print('Enter the value of p = ',p)
+print('Enter the value of q = ',q)
+print('Enter the value of text = ',no)
+print('n = '+str(n)+' e = '+str(e)+' t = '+str(t)+' d = '+str(d)+' cipher text= '+str(ct)+' decrypted text = '+str(dt))
